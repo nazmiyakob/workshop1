@@ -1,0 +1,19 @@
+#wrapper
+{ margin: auto; width: 100%; color: black; }
+ #header
+{ background: #ccc; padding: 20px;
+}
+#header h1 { margin: 0; text-align:center }
+
+#contain
+{  border: 5px solid black; margin:auto; width: 500px; height: 500px;
+}
+#table
+{
+	 width: 100px;
+    margin: auto;
+    border: 0px solid red;
+	
+	
+}
+

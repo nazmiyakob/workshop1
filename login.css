@@ -1,0 +1,18 @@
+#wrapper
+{ margin: 0 auto; width: 100%; }
+ #header
+{ background: #ccc; padding: 20px;
+}
+#header h1 { margin: 0; text-align:center }
+
+#contain
+{ width: 40%; height: 150%; border: 5px solid ; margin:auto
+}
+#table
+{
+	 width: 300px;
+    margin: auto;
+    border: 0px solid red;
+}
+
+

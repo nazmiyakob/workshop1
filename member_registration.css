@@ -1,0 +1,13 @@
+#wrapper
+{ margin: 0 auto; width: 100%;} 
+#header
+{ background: #d9d9d9; padding: 10px;
+}
+#header h1 { margin: 0; text-align:center; }
+#p { margin: 0; text-align:center; }
+
+#content{ float: left; width: 88%; margin: 10px 150px 150px 80px;}
+#main{margin:auto; padding:auto; }
+
+#gambar { float: left; margin: 0 0 0px 150px;}
+

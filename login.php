@@ -13,7 +13,7 @@
 	    <div class="body"></div>
 			<div class="grad"></div>
 			<div class="header">
-				<a href='index.php'><div><span>Event</span><br>Management</div></a>
+				<div><span>Event</span><br>Management</div>
 			</div><br>
 			
 			<form method='POST' action="authenticate.php">
@@ -21,11 +21,15 @@
 						<input type="text" placeholder="username" name="username" required="required"><br>
 						<input type="password" placeholder="password" name="password" required="required"><br>
 						<input id="submit" type="submit" name="submit" value="Login">
+						
 				</div>
 			</form>
 
 			<div class="register">
 	   			<a href="register.php"><input id="submit" type="submit" name="submit" value="Register"></a>
+
+	   			<br>
+						<input type="button" value="Go back!" onclick="history.back()">
 	   		</div>
 
 	    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

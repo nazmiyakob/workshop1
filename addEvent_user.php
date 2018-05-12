@@ -58,21 +58,26 @@
     </div>
   </nav>
 <center>
- <?php 
- include('dbc.php');
+      <h1> ADD EVENT </h1><P> 
+        <form method="post" action="add_eventPuser.php">
 
- $sql = mysql_query("SELECT * FROM login WHERE username='$username'");
+            EVENT NAME <br><input type="text" placeholder="Event Name" name="Name" required="required"><br><p>
 
- $row=mysql_fetch_array($sql);
+            PLACE <br><input type="text" placeholder="Place" name="Place" required="required"><br><p>
 
- $fullname = $row['fullname'];
+            TICKET PRICE (RM  )<br><input type="number" min="1" max="50" name="Price_Ticket" required="required"><br><p>
 
- echo "Fullname : $fullname";
+            TICKET QUANTITY <br><input type="number" min="1" max="3000" name="Latest_Ticket" required="required"><br><p>
 
-  ?>
-  <p>
-  <img src="image/1.jpg">
-</center>
+            START DATE <BR><input type="date" name="Start_Date" required="required"><br><p>      
+
+            END DATE <BR><input type="date" name="End_Date" required="required"><br><p>
+
+            <input  type="submit" name="submit" value="Add_Event">
+            <input id="reset" type='reset' name='Reset' value='Reset'>
+        </form>
+      </center>
+
           
 </body>
 </html>

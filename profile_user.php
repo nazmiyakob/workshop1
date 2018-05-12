@@ -43,6 +43,7 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="user.php">HOME</a>
         <a class="navbar-brand" href="profile_user.php">PROFILE</a>
+        <a class="navbar-brand" href="addEvent_user.php">ADD EVENT</a>
         <a class="navbar-brand" href="user_event.php">LIST</a>
         <a class="navbar-brand" href="user_buy.php">EVENT</a>
       </div>

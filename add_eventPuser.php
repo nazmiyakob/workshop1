@@ -16,10 +16,9 @@
 	$Latest_Ticket=$_POST['Latest_Ticket']; 
 	$Start_Date=$_POST['Start_Date'];
 	$End_Date=$_POST['End_Date'];
-	$status="approve";
 	
-	$sql="INSERT INTO $tbl_name(Name,Place,Price_Ticket,Latest_Ticket,Start_Date,End_Date,status) VALUES( 
-              '$Name', '$Place', '$Price_Ticket', '$Latest_Ticket', '$Start_Date', '$End_Date','$status')";
+	$sql="INSERT INTO $tbl_name(Name,Place,Price_Ticket,Latest_Ticket,Start_Date,End_Date) VALUES( 
+              '$Name', '$Place', '$Price_Ticket', '$Latest_Ticket', '$Start_Date', '$End_Date')";
 	$result=mysql_query($sql);	
 
 	echo '<script language = "JavaScript">alert("You add new Event")</script>';

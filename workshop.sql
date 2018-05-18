@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2018 at 06:16 PM
+-- Generation Time: May 18, 2018 at 05:38 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.33
 
@@ -28,23 +28,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `event` (
   `EventId` int(3) NOT NULL,
-  `Name` varchar(30) NOT NULL,
+  `Name` varchar(60) NOT NULL,
   `Place` varchar(30) NOT NULL,
   `Price_Ticket` bigint(10) NOT NULL,
   `Latest_Ticket` bigint(10) NOT NULL,
   `Start_Date` date NOT NULL,
-  `End_Date` date NOT NULL
+  `End_Date` date NOT NULL,
+  `status` varchar(100) NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `event`
 --
 
-INSERT INTO `event` (`EventId`, `Name`, `Place`, `Price_Ticket`, `Latest_Ticket`, `Start_Date`, `End_Date`) VALUES
-(1, 'Maulid Nabi 2016', 'Kompleks Sukan', 4, 75, '2016-12-13', '2017-06-30'),
-(2, 'Kenduri Khawin', 'Dewan Besar UTeM', 4, 91, '2016-12-08', '2016-12-08'),
-(4, 'Pelajaredit', 'Dewan Besar UTeM', 5, 97, '2016-12-10', '2016-12-10'),
-(6, 'Karnival Bola Sepak', 'Stadium UTeM', 1, 2, '2016-12-17', '2016-12-18');
+INSERT INTO `event` (`EventId`, `Name`, `Place`, `Price_Ticket`, `Latest_Ticket`, `Start_Date`, `End_Date`, `status`) VALUES
+(1, 'Maulid Nabi 2018', 'Kompleks Sukan', 4, 75, '2018-11-19', '2018-11-21', 'pending'),
+(2, 'Kenduri Khawin', 'Dewan Besar UTeM', 4, 91, '2018-04-26', '2018-04-29', 'pending'),
+(4, 'Ceramah Perdana Ustaz Kazim: Antara Cinta & Rupa', 'Dewan Besar UTeM', 5, 97, '2018-04-12', '2018-04-13', 'pending'),
+(6, 'Karnival Bola Sepak', 'Stadium UTeM', 1, 2, '2018-03-07', '2018-03-15', 'pending'),
+(7, 'Karnival FTMK', 'FTMK', 1, 100, '2018-04-18', '2018-04-18', 'pending');
 
 -- --------------------------------------------------------
 
@@ -53,7 +55,8 @@ INSERT INTO `event` (`EventId`, `Name`, `Place`, `Price_Ticket`, `Latest_Ticket`
 --
 
 CREATE TABLE `login` (
-  `username` int(10) NOT NULL,
+  `id` int(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `fullname` text NOT NULL,
   `password` varchar(20) NOT NULL,
   `ic_number` bigint(20) NOT NULL,
@@ -69,12 +72,13 @@ CREATE TABLE `login` (
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`username`, `fullname`, `password`, `ic_number`, `matric_number`, `phone_number`, `email`, `faculty`, `course`, `user_type`) VALUES
-(101, 'Mohd Nazmi Syarifuddin Bin Mohd Yakob', 'abc123', 941016016117, 'B031510061', 177089951, 'nazmiyakob1994@gmail.com', 'ftmk', 'bits', 'Admin'),
-(102, 'Muhammad Azan Bin Kamarul Azhar', 'abc123', 941212085167, 'B031510077', 136789123, 'azan.azhar@gmail.com', 'ftmk', 'bitm', 'Pengguna'),
-(103, 'Sarah Syamimi', 'abc123', 940525145924, 'B031510042', 176048995, 'sarahsyamimi@yahoo.com', 'FTMK', 'BITS', 'Pengguna'),
-(104, 'Khairunnisha Ismail', 'abc123', 94100901, 'B031510000', 139063384, 'ikhairunnisha@gmail.com', 'FTMK', 'BITS', 'Pengguna'),
-(112, 'ZAIM ARIF BIN ABDUL RAZAK', 'abc123', 931016016117, 'B031510031', 137188901, 'zaim@gmail.com', 'FTMK', 'BITS', 'Pengguna');
+INSERT INTO `login` (`id`, `username`, `fullname`, `password`, `ic_number`, `matric_number`, `phone_number`, `email`, `faculty`, `course`, `user_type`) VALUES
+(101, 'nazmi', 'Mohd Nazmi Syarifuddin Bin Mohd Yakob', 'abc123', 941016016117, 'B031510061', 177089951, 'nazmiyakob1994@gmail.com', 'ftmk', 'bits', 'Admin'),
+(102, 'azan', 'Muhammad Azan Bin Kamarul Azhar', 'abc123', 941212085167, 'B031510077', 136789123, 'azan.azhar@gmail.com', 'ftmk', 'bitm', 'Pengguna'),
+(103, 'sarah', 'Sarah Syamimi', 'abc123', 940525145924, 'B031510042', 176048995, 'sarahsyamimi@yahoo.com', 'FTMK', 'BITS', 'Pengguna'),
+(104, 'nisa', 'Khairunnisha Ismail', 'abc123', 94100901, 'B031510000', 139063384, 'ikhairunnisha@gmail.com', 'FTMK', 'BITS', 'Pengguna'),
+(112, 'zaim', 'ZAIM ARIF BIN ABDUL RAZAK', 'abc123', 931016016117, 'B031510031', 137188901, 'zaim@gmail.com', 'FTMK', 'BITS', 'Pengguna'),
+(118, 'meon', 'amirul sukry', 'abc123', 940313025613, 'B031510096', 136689218, 'meon@gmail.com', 'FTMK', 'BITS', 'Pengguna');
 
 -- --------------------------------------------------------
 
@@ -151,7 +155,7 @@ ALTER TABLE `event`
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`username`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `ic_number` (`ic_number`),
   ADD UNIQUE KEY `matric_number` (`matric_number`);
 
@@ -175,12 +179,12 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `EventId` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `EventId` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `username` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 --
 -- AUTO_INCREMENT for table `s_ticket`
 --
